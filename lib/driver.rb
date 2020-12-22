@@ -1,17 +1,4 @@
 class Driver
-    def self.find(name)
-        @@instances.select { |instance| instance.name == name }[0] || nil
-    end
-
-    def self.all
-        @@instances
-    end
-
-    def self.delete_all
-        @@instances = []
-    end
-    
-    @@instances = []
     attr_reader :name, :trips
     attr_accessor :total_distance, :total_hours
 
@@ -20,7 +7,6 @@ class Driver
         @trips = []
         @total_distance = 0
         @total_hours = 0
-        @@instances << self
     end
 
     def receive_trip(trip)

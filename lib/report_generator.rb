@@ -24,20 +24,20 @@ class ReportGenerator
     end 
 
     def get_all_driving_records
-        Driver.delete_all # garbage cleanup if necessary
+        drivers = []
         commands.each do |command| 
             command = command.split
             if command[0] == "Driver"
                 driver_name = command[1..-1].join(" ")
-                Driver.new(driver_name)  # create new drivers on 'Driver' command
+                drivers.push(Driver.new(driver_name))  # create new drivers on 'Driver' command and add to tracked drivers
             else
-                driver = Driver.find(command[1])
+                driver = drivers.select { |driver| driver.name == command[1] }[0]
                 trip = Trip.new(*command[2..-1])
                 driver.receive_trip(trip)  # create a new trip and assign to driver on 'Trip' command
             end
         end
         
-        Driver.all.sort_by!(&:total_distance).reverse!
+        drivers.sort_by!(&:total_distance).reverse!
     end
 end
 # Will there be situations where a trip record for a driver occurs before the driver's registration?

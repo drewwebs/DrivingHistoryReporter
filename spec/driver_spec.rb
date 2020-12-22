@@ -10,25 +10,6 @@ describe Driver do
                 expect(driver).to respond_to attribute
             end
         end
-
-        it "should insert itself into @@instances" do
-            joe = Driver.new("Joe")
-            expect(Driver.find("Joe")).to be(joe)
-        end
-    end
-
-    describe ".delete_all" do 
-        it "should return all drivers" do
-            Driver.delete_all
-            expect(Driver.all).to be_empty
-        end
-    end
-
-    describe ".all" do 
-        it "should return all drivers" do
-            driver
-            expect(Driver.all).to_not be_empty
-        end
     end
 
 
