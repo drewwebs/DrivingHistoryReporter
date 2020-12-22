@@ -1,5 +1,4 @@
 require "driver"
-require 'byebug'
 
 describe Driver do
     let(:driver) { Driver.new("Fred") }

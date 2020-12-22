@@ -5,7 +5,7 @@ describe ReportGenerator do
     let(:output) { Tempfile.new }
 
     subject(:generator) do 
-        input = File.readlines('sample.yml')
+        input = File.readlines('sample.txt')
         ReportGenerator.new(input, output.path) 
     end
 

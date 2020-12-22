@@ -5,8 +5,8 @@ String.include StringExtension
 class Trip
     attr_reader :distance, :duration_in_hours
 
-    def initialize(start_time, finish_time, distance)
-        @duration_in_hours = finish_time.to_hours - start_time.to_hours
+    def initialize(start, finish, distance)
+        @duration_in_hours = finish.to_hours - start.to_hours
         @distance = distance.to_f
     end
 
