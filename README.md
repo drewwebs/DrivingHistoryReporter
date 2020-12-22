@@ -2,7 +2,7 @@
 
 DrivingHistoryReporter is a simple parser that accepts an input via stdin containing driver registrations and trip reports, and outputs a driving record for each driver.
 
-Use `cat your-input.yml | ruby lib/report_generator.rb` to run. A sample file (sample.yml) is provided in the top level directory if needed.
+Use `cat your-input.txt | ruby lib/report_generator.rb` to run. A sample file (sample.yml) is provided in the top level directory if needed.
 
 ## Object Oriented
 I chose to break this problem down into three classes. Deconstructing the problem into objects allowed for appropriately semantic code, without over-abstraction.  
